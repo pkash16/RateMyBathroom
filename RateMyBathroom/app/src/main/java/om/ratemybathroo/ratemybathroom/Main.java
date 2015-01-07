@@ -17,6 +17,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.parse.FindCallback;
 import com.parse.ParseException;
@@ -118,8 +119,9 @@ public class Main extends FragmentActivity {
                 if(e == null){
                     //add a marker
                         for(ParseObject j : parseObjects){
-                            mMap.addMarker(new MarkerOptions().position(new LatLng(j.getParseGeoPoint("location").getLatitude(),j.getParseGeoPoint("location").getLongitude())).title(
-                                    j.get("title").toString()));
+                            Marker marker = mMap.addMarker(new MarkerOptions().position(new LatLng(j.getParseGeoPoint("location").getLatitude(),j.getParseGeoPoint("location").getLongitude())).title(
+                                    j.get("title").toString()).snippet("rating: " + j.get("avgRating").toString().substring(0,3) + "/5"));
+                            //  marker.showInfoWindow();
                         }
 
                 }else{
