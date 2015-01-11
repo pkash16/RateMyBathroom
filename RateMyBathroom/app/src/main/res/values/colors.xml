@@ -1,5 +1,7 @@
 <resources>
 
     <color name="black_overlay">#66000000</color>
+    <color name ="primary">#673AB7</color>
+    <color name = "primary_dark">#512DA8</color>
 
 </resources>

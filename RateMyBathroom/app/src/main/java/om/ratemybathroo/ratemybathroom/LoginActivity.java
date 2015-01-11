@@ -1,5 +1,6 @@
 package om.ratemybathroo.ratemybathroom;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -14,7 +15,7 @@ import com.parse.ParseException;
 import com.parse.ParseUser;
 
 
-public class LoginActivity extends ActionBarActivity {
+public class LoginActivity extends Activity {
 
     private EditText username,password;
 
@@ -58,9 +59,16 @@ public class LoginActivity extends ActionBarActivity {
             @Override
             public void done(ParseUser parseUser, ParseException e) {
                 if(e == null) {
-                    Intent i = new Intent(getApplicationContext(), ViewBathrooms.class);
-                    startActivity(i);
-                    finish();
+                    if(parseUser.getBoolean("emailVerified")){
+                        Intent i = new Intent(getApplicationContext(), ViewBathrooms.class);
+                        startActivity(i);
+                        finish();
+                    }else{
+                        //do something else
+                        Intent i = new Intent(getApplicationContext(),EmailVerifiedActivity.class);
+                        startActivity(i);
+                    }
+
                 }else{
                     Toast.makeText(getApplicationContext(),e.getMessage(), Toast.LENGTH_LONG).show();
                 }

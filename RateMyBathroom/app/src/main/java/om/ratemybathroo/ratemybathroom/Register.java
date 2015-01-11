@@ -1,5 +1,6 @@
 package om.ratemybathroo.ratemybathroom;
 
+import android.app.Activity;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -13,7 +14,7 @@ import com.parse.ParseUser;
 import com.parse.SignUpCallback;
 
 
-public class Register extends ActionBarActivity {
+public class Register extends Activity {
 
     private EditText username, password, passwordconfirm, email;
 

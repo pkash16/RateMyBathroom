@@ -1,5 +1,6 @@
 package om.ratemybathroo.ratemybathroom;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -19,7 +20,7 @@ import com.parse.ParseQuery;
 import java.util.List;
 
 
-public class BathroomDetails extends ActionBarActivity {
+public class BathroomDetails extends Activity {
 
     private String parseId;
     public TextView title,address;

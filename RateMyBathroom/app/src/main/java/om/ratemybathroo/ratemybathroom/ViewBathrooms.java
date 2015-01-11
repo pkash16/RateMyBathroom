@@ -1,5 +1,6 @@
 package om.ratemybathroo.ratemybathroom;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -32,7 +33,7 @@ import java.text.DecimalFormat;
 import java.util.List;
 
 
-public class ViewBathrooms extends ActionBarActivity {
+public class ViewBathrooms extends Activity {
 
     private ParseUser currentUser;
     private ListView listview;

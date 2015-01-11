@@ -1,5 +1,6 @@
 package om.ratemybathroo.ratemybathroom;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -31,7 +32,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class AddBathroom extends ActionBarActivity {
+public class AddBathroom extends Activity {
 
     private EditText title, address, comment;
     private RatingBar rating;

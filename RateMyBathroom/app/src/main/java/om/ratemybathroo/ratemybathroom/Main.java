@@ -9,6 +9,8 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdate;
@@ -25,6 +27,7 @@ import com.parse.ParseGeoPoint;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 
+import java.text.DecimalFormat;
 import java.util.List;
 
 public class Main extends FragmentActivity {
@@ -118,9 +121,11 @@ public class Main extends FragmentActivity {
             public void done(List<ParseObject> parseObjects, ParseException e) {
                 if(e == null){
                     //add a marker
+                    DecimalFormat df = new DecimalFormat("#.##");
                         for(ParseObject j : parseObjects){
+
                             Marker marker = mMap.addMarker(new MarkerOptions().position(new LatLng(j.getParseGeoPoint("location").getLatitude(),j.getParseGeoPoint("location").getLongitude())).title(
-                                    j.get("title").toString()).snippet("rating: " + j.get("avgRating").toString().substring(0,3) + "/5"));
+                                    j.get("title").toString()).snippet("rating: " + df.format(Double.parseDouble(j.get("avgRating").toString())) + "/5"));
                             //  marker.showInfoWindow();
                         }
 
@@ -184,4 +189,5 @@ public class Main extends FragmentActivity {
             }
         });
     }
+
 }

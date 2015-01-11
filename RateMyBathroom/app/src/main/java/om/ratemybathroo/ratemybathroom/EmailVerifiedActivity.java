@@ -2,50 +2,42 @@ package om.ratemybathroo.ratemybathroom;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Handler;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
-import com.parse.ParseException;
-import com.parse.ParseObject;
 import com.parse.ParseUser;
-import com.parse.SaveCallback;
-import com.parse.SignUpCallback;
 
 
-public class SplashScreen extends Activity {
+public class EmailVerifiedActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_splash_screen);
+        setContentView(R.layout.activity_email_verified);
 
-        Thread thread = new Thread(){
 
-            @Override
-            public void run() {
-                try{
-                    sleep(2000);
-                    Intent i = new Intent(getApplicationContext(), LoginActivity.class);
-                    startActivity(i);
-                }catch(Exception e){
+    }
 
-                }finally{
-                    finish();
-                }
-            }
-        };
-
-        thread.start();
+    public void verified(View v){
+        //check if verified
+        if(ParseUser.getCurrentUser().getBoolean("emailVerified")){
+            Intent i = new Intent(this,ViewBathrooms.class);
+            startActivity(i);
+        }else{
+            Toast.makeText(this,"Are you sure you verified? Check your email!", Toast.LENGTH_LONG).show();
+        }
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_splash_screen, menu);
+        getMenuInflater().inflate(R.menu.menu_email_verified, menu);
         return true;
     }
 

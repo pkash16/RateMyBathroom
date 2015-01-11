@@ -8,8 +8,7 @@
         android:textSize="30dp"
         android:text="Bathroom Title Here"
         android:padding="15dp"
-        android:id="@+id/tv_title_row"
-        android:textColor="@android:color/black"/>
+        android:id="@+id/tv_title_row"/>
     <RatingBar
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

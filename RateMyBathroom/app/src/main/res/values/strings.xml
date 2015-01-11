@@ -14,5 +14,6 @@
     <string name="title_activity_register">Register</string>
     <string name="title_activity_bathroom_details">Bathroom Details</string>
     <string name="title_activity_rate">Rate Bathroom</string>
+    <string name="title_activity_email_verified">Email Verified?</string>
 
 </resources>

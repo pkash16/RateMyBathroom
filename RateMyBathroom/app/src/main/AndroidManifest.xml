@@ -73,6 +73,10 @@
             android:name=".RateActivity"
             android:label="@string/title_activity_rate" >
         </activity>
+        <activity
+            android:name=".EmailVerifiedActivity"
+            android:label="@string/title_activity_email_verified" >
+        </activity>
     </application>
 
 </manifest>
