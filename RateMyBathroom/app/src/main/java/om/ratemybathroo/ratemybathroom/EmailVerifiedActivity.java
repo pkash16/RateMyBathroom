@@ -15,21 +15,27 @@ import com.parse.ParseUser;
 
 public class EmailVerifiedActivity extends Activity {
 
+    ParseUser parseUser;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_email_verified);
+        parseUser = ParseUser.getCurrentUser();
 
 
     }
 
     public void verified(View v){
         //check if verified
-        if(ParseUser.getCurrentUser().getBoolean("emailVerified")){
+        parseUser = ParseUser.getCurrentUser();
+        boolean verify = parseUser.getBoolean("emailVerified");
+        if(verify){
             Intent i = new Intent(this,ViewBathrooms.class);
             startActivity(i);
+            finish();
         }else{
-            Toast.makeText(this,"Are you sure you verified? Check your email!", Toast.LENGTH_LONG).show();
+            Toast.makeText(this,"Are you sure you're verified? Check your email!", Toast.LENGTH_LONG).show();
         }
     }
 
