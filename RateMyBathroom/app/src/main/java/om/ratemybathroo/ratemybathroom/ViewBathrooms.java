@@ -129,7 +129,7 @@ public class ViewBathrooms extends Activity {
         geolocate();
         ParseGeoPoint currentLocation = new ParseGeoPoint(lat,lng);
 
-        ParseQuery<ParseObject> query = ParseQuery.getQuery("bathrooms");
+        ParseQuery<ParseObject> query = ParseQuery.getQuery("buildings");
         query.whereNear("location",currentLocation);
         query.setLimit(50);
 

@@ -7,14 +7,16 @@
     tools:context="om.ratemybathroo.ratemybathroom.AddBathroom"
     android:orientation="vertical">
 
-    <TextView android:text="Title" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" android:textSize="25dp" />
     <EditText
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/et_title"/>
-    <TextView android:text="Address" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" android:textSize="25dp" />
+        android:id="@+id/et_title"
+        android:hint="Title"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Find Building"
+        android:onClick="findBuilding"/>
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="fill_parent"
@@ -24,7 +26,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/et_address"
-            android:layout_weight="0.96" />
+            android:layout_weight="0.96"
+            android:hint="Address"/>
         <ImageButton
             android:layout_weight="0.04"
             android:layout_width="wrap_content"
@@ -33,6 +36,11 @@
             android:onClick="setAddress"/>
 
         </LinearLayout>
+
+    <EditText
+        android:hint="Floor..."
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
 
     <TextView
         android:layout_width="wrap_content"

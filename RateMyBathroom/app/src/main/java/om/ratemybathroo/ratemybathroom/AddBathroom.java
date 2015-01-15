@@ -115,13 +115,44 @@ public class AddBathroom extends Activity {
             return;
         }
 
+        ParseObject building = new ParseObject("buildings");
+        building.put("address", address.getText().toString());
+        ParseGeoPoint point = new ParseGeoPoint(lat,lng);
+        building.put("location",point);
+
+
+
+        ParseObject bathroom = new ParseObject("bathrooms");
+        bathroom.put("title", title.getText().toString());
+        bathroom.put("numRatings",1);
+        bathroom.put("avgRating",rating.getRating());
+        bathroom.put("building",building);
+        try{
+            bathroom.save();
+        }catch(ParseException e){
+            ParseRelation<ParseObject>  relationship = building.getRelation("bathrooms");
+            relationship.add(bathroom);
+            try {
+                building.save();
+            }catch(ParseException ex){
+
+            }finally{
+
+            }
+        }finally{
+
+        }
+
+
+
+
+/*x
         ParseObject bathroom = new ParseObject("bathrooms");
         bathroom.put("title", title.getText().toString());
         bathroom.put("address", address.getText().toString());
         bathroom.put("numRatings", 1);
         bathroom.put("avgRating", rating.getRating());
-        ParseGeoPoint point = new ParseGeoPoint(lat,lng);
-        bathroom.put("location",point);
+        bathroom.put("location",point);*/
 
         ParseObject ratings = new ParseObject("ratings");
         ratings.put("rating", rating.getRating());
